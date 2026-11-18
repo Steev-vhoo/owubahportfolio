@@ -82,3 +82,25 @@ export function CursorGlitter() {
   }, [])
   return <div ref={layer} className="glitter-layer" aria-hidden="true" />
 }
+
+// Confetti-and-glitter burst from a point — used on "crowning" clicks.
+export function burst(x, y, count = 22) {
+  if (typeof window === 'undefined') return
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  const colors = ['#f6dc8a', '#d8ae5e', '#ff9764', '#fce4be', '#f3dcfb', '#e5ef93', '#ffffff']
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('span')
+    const angle = (Math.PI * 2 * i) / count + Math.random() * 0.4
+    const dist = 60 + Math.random() * 110
+    const size = 6 + Math.random() * 9
+    el.className = `burst ${i % 3 === 0 ? 'burst--star' : ''}`
+    el.style.cssText = `left:${x}px;top:${y}px;width:${size}px;height:${size}px;background:${colors[i % colors.length]};--dx:${Math.cos(angle) * dist}px;--dy:${Math.sin(angle) * dist}px;--r:${Math.random() * 540}deg`
+    document.body.appendChild(el)
+    setTimeout(() => el.remove(), 1100)
+  }
+}
+
+export const burstFromEvent = (e) => {
+  const r = e.currentTarget.getBoundingClientRect()
+  burst(e.clientX || r.left + r.width / 2, e.clientY || r.top + r.height / 2)
+}

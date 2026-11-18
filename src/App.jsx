@@ -3,7 +3,7 @@ import { AnimatePresence, MotionConfig } from 'framer-motion'
 import Intro from './components/Intro.jsx'
 import Nav from './components/Nav.jsx'
 import Hero from './components/Hero.jsx'
-import { About, Journey, Work, Services, Clients, Contact } from './components/Sections.jsx'
+import { Ribbons, About, Journey, Work, Services, Clients, Contact } from './components/Sections.jsx'
 import { CursorGlitter } from './components/Sparkle.jsx'
 
 const reduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -17,9 +17,11 @@ export default function App() {
       <a className="skip" href="#main">Skip to content</a>
       <AnimatePresence>{intro && <Intro key="intro" onDone={done} />}</AnimatePresence>
       <CursorGlitter />
+      <div className="grain" aria-hidden="true" />
       <Nav />
       <main id="main">
         <Hero ready={!intro} />
+        <Ribbons />
         <About />
         <Journey />
         <Work />
@@ -27,12 +29,6 @@ export default function App() {
         <Clients />
         <Contact />
       </main>
-      <footer className="footer">
-        <div className="wrap footer__inner">
-          <span>© {new Date().getFullYear()} Francisca Nana Owubah</span>
-          <a href="#home">Back to top ↑</a>
-        </div>
-      </footer>
     </MotionConfig>
   )
 }

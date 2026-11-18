@@ -87,12 +87,12 @@ export const projects = [
 ]
 
 export const services = [
-  { name: 'Brand Identity', tone: 'lime' },
-  { name: 'Brand Activation' },
-  { name: 'Website Development', tone: 'peach' },
-  { name: 'Brand Strategy' },
-  { name: 'Video Production', tone: 'lime' },
-  { name: 'Integrated Marketing' },
+  { name: 'Brand Identity', img: '/img/schematiq-tee.webp', tone: 'lime' },
+  { name: 'Brand Activation', img: '/img/amonu-chocolate.webp', tone: 'peach' },
+  { name: 'Website Development', img: '/img/social-mockup.webp', tone: 'sky' },
+  { name: 'Brand Strategy', img: '/img/potters-apparel-instagram.webp', tone: 'lilac' },
+  { name: 'Video Production', img: '/img/portrait-white.webp', tone: 'lime' },
+  { name: 'Integrated Marketing', img: '/img/skincare-shoot.webp', tone: 'peach' },
 ]
 
 export const clients = [
@@ -117,8 +117,8 @@ export const contact = {
 
 export const nav = [
   { id: 'about', label: 'About' },
-  { id: 'journey', label: 'Journey' },
-  { id: 'work', label: 'Work' },
+  { id: 'journey', label: 'Runway' },
+  { id: 'work', label: 'Collection' },
   { id: 'services', label: 'Services' },
   { id: 'clients', label: 'Clients' },
 ]
